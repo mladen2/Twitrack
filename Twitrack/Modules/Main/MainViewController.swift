@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class MainViewController: UIViewController {
 
@@ -31,6 +32,7 @@ class MainViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        pr()
         setupUI()
         presenter?.viewDidLoad()
     }
@@ -43,6 +45,7 @@ extension MainViewController: PresenterToViewMainProtocol {
             self.tableView.reloadData()
         }
     }
+    
     func onError(error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -64,7 +67,7 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let ret = presenter?.tweets?.count ?? 0
+        let ret = presenter?.interactor?.tweets.count ?? 0
         pr("there are : \(ret) tweets")
         return ret
     }
@@ -80,8 +83,12 @@ extension MainViewController: UITableViewDataSource {
         }
         return cell
     }
+}
 
-
+extension MainViewController: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        self.view.window!
+    }
 }
 
 // MARK: -
@@ -93,5 +100,17 @@ extension MainViewController {
         navigationItem.title = "Twitrack"
         view.backgroundColor = UIColor.systemBackground
 
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        let guide = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: guide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: guide.leadingAnchor)
+        ])
+
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reload", style: UIBarButtonItem.Style.plain, target: self, action: #selector(reload(_:)))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Restart", style: UIBarButtonItem.Style.plain, target: self, action: #selector(restart(_:)))
     }
 }

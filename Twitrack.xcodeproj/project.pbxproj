@@ -22,6 +22,29 @@
 		923B6E3626C2E3D500171061 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3526C2E3D400171061 /* MainTableViewCell.swift */; };
 		923B6E3926C2E48C00171061 /* MiscUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3826C2E48C00171061 /* MiscUtils.swift */; };
 		923B6E3B26C2E61900171061 /* Label+DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */; };
+		923B6E3E26C2E9D700171061 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3D26C2E9D700171061 /* NetworkService.swift */; };
+		923B6E4026C2EA7E00171061 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3F26C2EA7E00171061 /* Constants.swift */; };
+		923B6E4226C2ECF800171061 /* LocalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4126C2ECF800171061 /* LocalError.swift */; };
+		923B6E4426C2F15500171061 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4326C2F15500171061 /* Tweet.swift */; };
+		923B6E4626C3164B00171061 /* HttpSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4526C3164B00171061 /* HttpSignature.swift */; };
+		923B6E4826C3168100171061 /* HttpSignature+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4726C3168100171061 /* HttpSignature+Test.swift */; };
+		923B6E4A26C316C500171061 /* TwitterAuthSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4926C316C500171061 /* TwitterAuthSignature.swift */; };
+		923B6E4C26C3171600171061 /* AuthAndSignatureKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4B26C3171600171061 /* AuthAndSignatureKey.swift */; };
+		923B6E4E26C3175F00171061 /* URLRequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4D26C3175F00171061 /* URLRequestConstants.swift */; };
+		923B6E5026C317B500171061 /* CharacterSet+URLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4F26C317B500171061 /* CharacterSet+URLQuery.swift */; };
+		923B6E5226C3185000171061 /* String+SHA1Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E5126C3185000171061 /* String+SHA1Digest.swift */; };
+		923B6E5426C318C900171061 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E5326C318C900171061 /* AuthHelper.swift */; };
+		923B6E6826C3196800171061 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923B6E5E26C3195B00171061 /* SwifteriOS.framework */; };
+		923B6E6926C3196800171061 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 923B6E5E26C3195B00171061 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		923B6E6D26C31CC900171061 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E6C26C31CC900171061 /* Authorization.swift */; };
+		923B6E6F26C31E7A00171061 /* SwifterAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */; };
+		923B6E7126C331F500171061 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7026C331F500171061 /* AuthViewController.swift */; };
+		923B6E7326C334FB00171061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923B6E7226C334FB00171061 /* Main.storyboard */; };
+		923B6E7526C3388D00171061 /* RandomSystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7426C3388D00171061 /* RandomSystemImage.swift */; };
+		923B6E7726C3389500171061 /* AttributedString+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7626C3389500171061 /* AttributedString+Highlight.swift */; };
+		923B6E7926C338D300171061 /* Date+TwitterFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7826C338D300171061 /* Date+TwitterFormat.swift */; };
+		924C91AE26C345A100519970 /* Date+Ago.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924C91A826C345A100519970 /* Date+Ago.swift */; };
+		924C91B026C349CC00519970 /* TwitterImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924C91AF26C349CC00519970 /* TwitterImageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +62,56 @@
 			remoteGlobalIDString = 923B6DEF26C2DC7E00171061;
 			remoteInfo = Twitrack;
 		};
+		923B6E5D26C3195B00171061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 923B6E5526C3195B00171061 /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F50EE1944A5AB00894629;
+			remoteInfo = SwifteriOS;
+		};
+		923B6E5F26C3195B00171061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 923B6E5526C3195B00171061 /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F51131944A61D00894629;
+			remoteInfo = SwifterMac;
+		};
+		923B6E6126C3195B00171061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 923B6E5526C3195B00171061 /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C1F1944AA1A00993175;
+			remoteInfo = SwifterDemoiOS;
+		};
+		923B6E6326C3195B00171061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 923B6E5526C3195B00171061 /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C471944AECB00993175;
+			remoteInfo = SwifterDemoMac;
+		};
+		923B6E6526C3195B00171061 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 923B6E5526C3195B00171061 /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6B4D5751C7BAC4500E06514;
+			remoteInfo = SwifterTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		923B6E6A26C3196800171061 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				923B6E6926C3196800171061 /* SwifteriOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		923B6DF026C2DC7E00171061 /* Twitrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +135,28 @@
 		923B6E3526C2E3D400171061 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		923B6E3826C2E48C00171061 /* MiscUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscUtils.swift; sourceTree = "<group>"; };
 		923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Label+DynamicFont.swift"; sourceTree = "<group>"; };
+		923B6E3D26C2E9D700171061 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		923B6E3F26C2EA7E00171061 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		923B6E4126C2ECF800171061 /* LocalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalError.swift; sourceTree = "<group>"; };
+		923B6E4326C2F15500171061 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		923B6E4526C3164B00171061 /* HttpSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpSignature.swift; sourceTree = "<group>"; };
+		923B6E4726C3168100171061 /* HttpSignature+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HttpSignature+Test.swift"; sourceTree = "<group>"; };
+		923B6E4926C316C500171061 /* TwitterAuthSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthSignature.swift; sourceTree = "<group>"; };
+		923B6E4B26C3171600171061 /* AuthAndSignatureKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAndSignatureKey.swift; sourceTree = "<group>"; };
+		923B6E4D26C3175F00171061 /* URLRequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConstants.swift; sourceTree = "<group>"; };
+		923B6E4F26C317B500171061 /* CharacterSet+URLQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+URLQuery.swift"; sourceTree = "<group>"; };
+		923B6E5126C3185000171061 /* String+SHA1Digest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+SHA1Digest.swift"; sourceTree = "<group>"; };
+		923B6E5326C318C900171061 /* AuthHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
+		923B6E5526C3195B00171061 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = ../../Research/Swifter/Swifter.xcodeproj; sourceTree = "<group>"; };
+		923B6E6C26C31CC900171061 /* Authorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifterAuthHelper.swift; sourceTree = "<group>"; };
+		923B6E7026C331F500171061 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		923B6E7226C334FB00171061 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		923B6E7426C3388D00171061 /* RandomSystemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomSystemImage.swift; sourceTree = "<group>"; };
+		923B6E7626C3389500171061 /* AttributedString+Highlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+Highlight.swift"; sourceTree = "<group>"; };
+		923B6E7826C338D300171061 /* Date+TwitterFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+TwitterFormat.swift"; sourceTree = "<group>"; };
+		924C91A826C345A100519970 /* Date+Ago.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ago.swift"; sourceTree = "<group>"; };
+		924C91AF26C349CC00519970 /* TwitterImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923B6E6826C3196800171061 /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +188,12 @@
 		923B6DE726C2DC7E00171061 = {
 			isa = PBXGroup;
 			children = (
+				923B6E5526C3195B00171061 /* Swifter.xcodeproj */,
 				923B6DF226C2DC7E00171061 /* Twitrack */,
 				923B6E0C26C2DC8100171061 /* TwitrackTests */,
 				923B6E1726C2DC8100171061 /* TwitrackUITests */,
 				923B6DF126C2DC7E00171061 /* Products */,
+				923B6E6726C3196800171061 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +210,7 @@
 		923B6DF226C2DC7E00171061 /* Twitrack */ = {
 			isa = PBXGroup;
 			children = (
+				923B6E3C26C2E9CB00171061 /* Services */,
 				923B6E3726C2E48400171061 /* Misc */,
 				923B6E3226C2DE7700171061 /* App */,
 				923B6E3326C2DE8400171061 /* Supporting Files */,
@@ -176,6 +274,7 @@
 				923B6DFF26C2DC8000171061 /* Assets.xcassets */,
 				923B6E0126C2DC8000171061 /* LaunchScreen.storyboard */,
 				923B6E0426C2DC8000171061 /* Info.plist */,
+				923B6E7226C334FB00171061 /* Main.storyboard */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -184,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				923B6DFC26C2DC7E00171061 /* Twitrack.xcdatamodeld */,
+				923B6E4326C2F15500171061 /* Tweet.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -191,10 +291,55 @@
 		923B6E3726C2E48400171061 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				923B6E7426C3388D00171061 /* RandomSystemImage.swift */,
+				924C91A826C345A100519970 /* Date+Ago.swift */,
+				923B6E7826C338D300171061 /* Date+TwitterFormat.swift */,
+				923B6E7626C3389500171061 /* AttributedString+Highlight.swift */,
 				923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */,
 				923B6E3826C2E48C00171061 /* MiscUtils.swift */,
+				923B6E3F26C2EA7E00171061 /* Constants.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		923B6E3C26C2E9CB00171061 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				923B6E4B26C3171600171061 /* AuthAndSignatureKey.swift */,
+				923B6E5326C318C900171061 /* AuthHelper.swift */,
+				923B6E6C26C31CC900171061 /* Authorization.swift */,
+				923B6E7026C331F500171061 /* AuthViewController.swift */,
+				923B6E4F26C317B500171061 /* CharacterSet+URLQuery.swift */,
+				923B6E4526C3164B00171061 /* HttpSignature.swift */,
+				923B6E4726C3168100171061 /* HttpSignature+Test.swift */,
+				923B6E4126C2ECF800171061 /* LocalError.swift */,
+				923B6E3D26C2E9D700171061 /* NetworkService.swift */,
+				923B6E5126C3185000171061 /* String+SHA1Digest.swift */,
+				923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */,
+				923B6E4926C316C500171061 /* TwitterAuthSignature.swift */,
+				924C91AF26C349CC00519970 /* TwitterImageService.swift */,
+				923B6E4D26C3175F00171061 /* URLRequestConstants.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		923B6E5626C3195B00171061 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				923B6E5E26C3195B00171061 /* SwifteriOS.framework */,
+				923B6E6026C3195B00171061 /* SwifterMac.framework */,
+				923B6E6226C3195B00171061 /* SwifterDemoiOS.app */,
+				923B6E6426C3195B00171061 /* SwifterDemoMac.app */,
+				923B6E6626C3195B00171061 /* SwifterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		923B6E6726C3196800171061 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +352,7 @@
 				923B6DEC26C2DC7E00171061 /* Sources */,
 				923B6DED26C2DC7E00171061 /* Frameworks */,
 				923B6DEE26C2DC7E00171061 /* Resources */,
+				923B6E6A26C3196800171061 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +432,12 @@
 			mainGroup = 923B6DE726C2DC7E00171061;
 			productRefGroup = 923B6DF126C2DC7E00171061 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 923B6E5626C3195B00171061 /* Products */;
+					ProjectRef = 923B6E5526C3195B00171061 /* Swifter.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				923B6DEF26C2DC7E00171061 /* Twitrack */,
@@ -295,11 +447,50 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		923B6E5E26C3195B00171061 /* SwifteriOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifteriOS.framework;
+			remoteRef = 923B6E5D26C3195B00171061 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		923B6E6026C3195B00171061 /* SwifterMac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifterMac.framework;
+			remoteRef = 923B6E5F26C3195B00171061 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		923B6E6226C3195B00171061 /* SwifterDemoiOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoiOS.app;
+			remoteRef = 923B6E6126C3195B00171061 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		923B6E6426C3195B00171061 /* SwifterDemoMac.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoMac.app;
+			remoteRef = 923B6E6326C3195B00171061 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		923B6E6626C3195B00171061 /* SwifterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwifterTests.xctest;
+			remoteRef = 923B6E6526C3195B00171061 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		923B6DEE26C2DC7E00171061 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923B6E7326C334FB00171061 /* Main.storyboard in Resources */,
 				923B6E0326C2DC8000171061 /* LaunchScreen.storyboard in Resources */,
 				923B6E0026C2DC8000171061 /* Assets.xcassets in Resources */,
 			);
@@ -326,16 +517,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923B6E4226C2ECF800171061 /* LocalError.swift in Sources */,
+				923B6E4C26C3171600171061 /* AuthAndSignatureKey.swift in Sources */,
 				923B6E2E26C2DCE900171061 /* MainViewController.swift in Sources */,
 				923B6E3B26C2E61900171061 /* Label+DynamicFont.swift in Sources */,
 				923B6E3626C2E3D500171061 /* MainTableViewCell.swift in Sources */,
 				923B6E2C26C2DCE900171061 /* MainPresenter.swift in Sources */,
 				923B6E2B26C2DCE900171061 /* MainContract.swift in Sources */,
+				923B6E4826C3168100171061 /* HttpSignature+Test.swift in Sources */,
+				923B6E7126C331F500171061 /* AuthViewController.swift in Sources */,
+				923B6E7526C3388D00171061 /* RandomSystemImage.swift in Sources */,
+				923B6E7726C3389500171061 /* AttributedString+Highlight.swift in Sources */,
+				923B6E4426C2F15500171061 /* Tweet.swift in Sources */,
 				923B6DF426C2DC7E00171061 /* AppDelegate.swift in Sources */,
 				923B6E3926C2E48C00171061 /* MiscUtils.swift in Sources */,
+				923B6E4026C2EA7E00171061 /* Constants.swift in Sources */,
 				923B6DFE26C2DC7E00171061 /* Twitrack.xcdatamodeld in Sources */,
 				923B6DF626C2DC7E00171061 /* SceneDelegate.swift in Sources */,
+				923B6E4626C3164B00171061 /* HttpSignature.swift in Sources */,
+				923B6E6D26C31CC900171061 /* Authorization.swift in Sources */,
+				923B6E4A26C316C500171061 /* TwitterAuthSignature.swift in Sources */,
 				923B6E2D26C2DCE900171061 /* MainRouter.swift in Sources */,
+				923B6E5026C317B500171061 /* CharacterSet+URLQuery.swift in Sources */,
+				923B6E5426C318C900171061 /* AuthHelper.swift in Sources */,
+				924C91AE26C345A100519970 /* Date+Ago.swift in Sources */,
+				923B6E7926C338D300171061 /* Date+TwitterFormat.swift in Sources */,
+				923B6E3E26C2E9D700171061 /* NetworkService.swift in Sources */,
+				923B6E5226C3185000171061 /* String+SHA1Digest.swift in Sources */,
+				924C91B026C349CC00519970 /* TwitterImageService.swift in Sources */,
+				923B6E4E26C3175F00171061 /* URLRequestConstants.swift in Sources */,
+				923B6E6F26C31E7A00171061 /* SwifterAuthHelper.swift in Sources */,
 				923B6E2F26C2DCE900171061 /* MainInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -489,7 +700,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -507,6 +718,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Q9X479638;
 				INFOPLIST_FILE = "Twitrack/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,6 +738,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Q9X479638;
 				INFOPLIST_FILE = "Twitrack/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
