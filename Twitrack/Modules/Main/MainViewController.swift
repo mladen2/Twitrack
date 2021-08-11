@@ -36,6 +36,11 @@ class MainViewController: UIViewController {
         setupUI()
         presenter?.viewDidLoad()
     }
+
+    @objc
+    func stopStreaming() {
+        presenter?.stopStreaming()
+    }
 }
 
 extension MainViewController: PresenterToViewMainProtocol {
@@ -110,7 +115,8 @@ extension MainViewController {
             tableView.leadingAnchor.constraint(equalTo: guide.leadingAnchor)
         ])
 
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reload", style: UIBarButtonItem.Style.plain, target: self, action: #selector(reload(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: UIBarButtonItem.Style.plain, target: self, action: #selector(stopStreaming))
+        //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reload", style: UIBarButtonItem.Style.plain, target: self, action: #selector(reload(_:)))
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Restart", style: UIBarButtonItem.Style.plain, target: self, action: #selector(restart(_:)))
     }
 }

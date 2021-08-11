@@ -45,6 +45,8 @@
 		923B6E7926C338D300171061 /* Date+TwitterFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7826C338D300171061 /* Date+TwitterFormat.swift */; };
 		924C91AE26C345A100519970 /* Date+Ago.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924C91A826C345A100519970 /* Date+Ago.swift */; };
 		924C91B026C349CC00519970 /* TwitterImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924C91AF26C349CC00519970 /* TwitterImageService.swift */; };
+		92B8113C26C3C4CA00BF9A40 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B8113B26C3C4CA00BF9A40 /* RegexHelper.swift */; };
+		92E8FB0126C3C85F00A033A4 /* HighlightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8FB0026C3C85F00A033A4 /* HighlightHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,8 @@
 		923B6E7826C338D300171061 /* Date+TwitterFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+TwitterFormat.swift"; sourceTree = "<group>"; };
 		924C91A826C345A100519970 /* Date+Ago.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ago.swift"; sourceTree = "<group>"; };
 		924C91AF26C349CC00519970 /* TwitterImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterImageService.swift; sourceTree = "<group>"; };
+		92B8113B26C3C4CA00BF9A40 /* RegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
+		92E8FB0026C3C85F00A033A4 /* HighlightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +302,8 @@
 				923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */,
 				923B6E3826C2E48C00171061 /* MiscUtils.swift */,
 				923B6E3F26C2EA7E00171061 /* Constants.swift */,
+				92B8113B26C3C4CA00BF9A40 /* RegexHelper.swift */,
+				92E8FB0026C3C85F00A033A4 /* HighlightHelper.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				923B6E3626C2E3D500171061 /* MainTableViewCell.swift in Sources */,
 				923B6E2C26C2DCE900171061 /* MainPresenter.swift in Sources */,
 				923B6E2B26C2DCE900171061 /* MainContract.swift in Sources */,
+				92B8113C26C3C4CA00BF9A40 /* RegexHelper.swift in Sources */,
 				923B6E4826C3168100171061 /* HttpSignature+Test.swift in Sources */,
 				923B6E7126C331F500171061 /* AuthViewController.swift in Sources */,
 				923B6E7526C3388D00171061 /* RandomSystemImage.swift in Sources */,
@@ -540,6 +547,7 @@
 				923B6E2D26C2DCE900171061 /* MainRouter.swift in Sources */,
 				923B6E5026C317B500171061 /* CharacterSet+URLQuery.swift in Sources */,
 				923B6E5426C318C900171061 /* AuthHelper.swift in Sources */,
+				92E8FB0126C3C85F00A033A4 /* HighlightHelper.swift in Sources */,
 				924C91AE26C345A100519970 /* Date+Ago.swift in Sources */,
 				923B6E7926C338D300171061 /* Date+TwitterFormat.swift in Sources */,
 				923B6E3E26C2E9D700171061 /* NetworkService.swift in Sources */,

@@ -41,45 +41,33 @@ extension String {
         }
         return attributedText
     }
+
+    func highlight4(words: [String]) -> NSAttributedString {
+//        let regex = try! NSRegularExpression(pattern: "(\\b[mM][Ee]\\b|\\bI\\b)", options: [.useUnicodeWordBoundaries])
+        print("words: \(words)")
+        let attributedText = NSMutableAttributedString(string: self)
+        guard !words.isEmpty else { return attributedText }
+        let regexPattern = RegexHelper.createRegexPattern(from: words)
+        print("regexPattern: \(regexPattern)")
+
+        do {
+            let regex = try NSRegularExpression(pattern: regexPattern, options: [.useUnicodeWordBoundaries, .caseInsensitive])
+            var ranges = [NSRange]()
+            let stringRange = NSRange(location: 0, length: self.utf16.count)
+            regex.enumerateMatches(in: self, options: [], range: stringRange) { match, _, stop in
+                guard let match = match else { return }
+                ranges.append(match.range)
+            }
+
+            for range in ranges {
+                attributedText.addAttribute(.foregroundColor, value: UIColor.systemRed, range: range)
+                attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 20), range: range)
+            }
+
+            return attributedText
+        } catch {
+            print("error: \(error.localizedDescription)")
+            return attributedText
+        }
+    }
 }
-
-//extension NSAttributedString {
-//
-//    func highlight(_ words: [String]) -> NSAttributedString {
-//
-//
-//
-//
-//
-//
-//
-//    }
-//
-//
-//
-//
-//
-//}
-//
-//}
-
-//extension NSAttributedString {
-//
-//    func highlight(searchedText: String?..., color: UIColor = .red) {
-//        guard let txtLabel = self.text else { return }
-//
-//        let attributeTxt = NSMutableAttributedString(string: txtLabel)
-//
-//        searchedText.forEach {
-//            if let searchedText = $0?.lowercased() {
-//                let range: NSRange = attributeTxt.mutableString.range(of: searchedText, options: .caseInsensitive)
-//
-//                attributeTxt.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
-//                attributeTxt.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: self.font.pointSize), range: range)
-//            }
-//        }
-//
-//        self.attributedText = attributeTxt
-//    }
-
-//}

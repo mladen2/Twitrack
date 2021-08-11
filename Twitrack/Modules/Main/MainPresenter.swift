@@ -30,6 +30,10 @@ class MainPresenter: ViewToPresenterMainProtocol {
             }
         }
     }
+
+    func stopStreaming() {
+        interactor?.stopStreaming()
+    }
     
     func didSelect(_ row: Int) {
         

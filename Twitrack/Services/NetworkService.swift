@@ -30,7 +30,7 @@ class NetworkService: NSObject {
 
     func startStreaming(completion: (Result<Bool, Error>) -> Void) {
 
-        theSearchTerms = searchTermsString(searchTerms)
+        theSearchTerms = searchTermsString(defaultSearchTerms)
         let query = baseURL + URLRequestConstants.startParams + trackTerms(theSearchTerms)
 
         guard let url = URL(string: query) else {
@@ -42,6 +42,10 @@ class NetworkService: NSObject {
         currentTask = session?.dataTask(with: request)
         currentTask?.resume()
         completion(.success(true))
+    }
+
+    func stop() {
+        currentTask?.cancel()
     }
 }
 
