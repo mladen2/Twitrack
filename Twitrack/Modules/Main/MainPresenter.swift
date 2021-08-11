@@ -18,7 +18,17 @@ class MainPresenter: ViewToPresenterMainProtocol {
     var tweets: [Tweet]?
     
     func viewDidLoad() {
-        interactor?.startStreaming()
+        pr()
+        SwifterAuthHelper().initSwifter(on: AuthViewController.instance()) { res in
+
+            switch res {
+            case .success(_):
+                self.interactor?.startStreaming()
+
+            case .failure(let error):
+                self.view?.onError(error: error.localizedDescription)
+            }
+        }
     }
     
     func didSelect(_ row: Int) {
@@ -31,38 +41,38 @@ class MainPresenter: ViewToPresenterMainProtocol {
 extension MainPresenter {
     
     func hasTweet(for row: Int) -> Bool {
-        true
+        interactor?.hasTweet(for: row) == true
     }
     
     func name(for row: Int) -> String {
-        ""
+        interactor?.tweet(for: row)?.user.name ?? ""
     }
     
     func screenName(for row: Int) -> String {
-        ""
+        interactor?.tweet(for: row)?.user.screenName ?? ""
     }
     
     func avatar(for row: Int) -> UIImage {
-        UIImage()
+        interactor?.tweet(for: row)?.user.avatarImage ?? UIImage()
     }
     
     func status(for row: Int) -> NSAttributedString {
-        NSAttributedString()
+        interactor?.tweet(for: row)?.textHighlighted ?? NSAttributedString()
     }
     
     func timeCreated(for row: Int) -> String {
-        ""
+        "cr: \(interactor?.tweet(for: row)?.createdAtDate?.timeAgoDisplay() ?? ""), rec: \(interactor?.tweet(for: row)?.timeReceived?.timeAgoDisplay() ?? ""  )"
     }
 }
 
 extension MainPresenter: InteractorToPresenterMainProtocol {
     
     func refreshData() {
-        
+        view?.onDataRefresh()
     }
     
     func onError(error: Error) {
-        
+        view?.onError(error: error.localizedDescription)
     }
     
     

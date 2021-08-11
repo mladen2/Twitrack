@@ -24,8 +24,8 @@ class MainTableViewCell: UITableViewCell {
     }()
 
     lazy var statusLabel: UILabel = {
-        var label = UILabel()
-        label.textColor = UIColor.secondaryLabel
+        var label = UILabel.label()
+//        label.textColor = UIColor.secondaryLabel
         label.numberOfLines = 10
         return label
     }()

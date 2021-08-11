@@ -9,12 +9,9 @@
 import UIKit
 
 // TODO: remove me
-struct Tweet {}
 class DataManager {
     static let shared = DataManager()
 }
-struct NetworkService {}
-
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewMainProtocol {
@@ -34,7 +31,7 @@ protocol ViewToPresenterMainProtocol {
     var interactor: PresenterToInteractorMainProtocol? { get set }
     var router: PresenterToRouterMainProtocol? { get set }
 
-    var tweets: [Tweet]? { get set }
+//    var tweets: [Tweet]? { get set }
 
     func viewDidLoad()
     func didSelect(_ row: Int)
@@ -56,11 +53,14 @@ protocol PresenterToInteractorMainProtocol {
     var dataManager: DataManager { get set }
     var networkService: NetworkService { get set }
 
-    var tweets: [Tweet]? { get set }
-    var inTweets: [Tweet]? { get set }
+    var tweets: [Tweet] { get set }
+//    var inTweets: [Tweet]? { get set }
 
     func startStreaming()
     func save()
+
+    func hasTweet(for row: Int) -> Bool
+    func tweet(for row: Int) -> Tweet?
 }
 
 
@@ -81,6 +81,6 @@ protocol PresenterToRouterMainProtocol {
 
 protocol NetworkDelegate {
     func newTweet(_ tweet: Tweet)
+    func showError(_ error: Error)
     func networkDisconnected()
-    func networkError(_ error: Error)
 }
