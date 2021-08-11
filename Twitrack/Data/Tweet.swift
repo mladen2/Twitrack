@@ -31,7 +31,7 @@ class Tweet: Decodable, Identifiable, Equatable {
         let retw = retweetedStatus?.extendedTweet?.fullText
         let extt = extendedTweet?.fullText
         let text2 = extt ?? retw ?? fullText ?? text ?? ""
-        return text2.highlight3(words: searchTerms)
+        return HighlightHelper.highlight(in: text2)
     }
     var fullText: String?
 

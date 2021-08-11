@@ -21,6 +21,8 @@ protocol PresenterToViewMainProtocol {
     func onDataRefresh()
     func onError(error: String)
 
+    func stopStreaming()
+
 }
 
 
@@ -34,6 +36,8 @@ protocol ViewToPresenterMainProtocol {
 //    var tweets: [Tweet]? { get set }
 
     func viewDidLoad()
+    func stopStreaming()
+
     func didSelect(_ row: Int)
 
     // tweet parts
@@ -57,6 +61,7 @@ protocol PresenterToInteractorMainProtocol {
 //    var inTweets: [Tweet]? { get set }
 
     func startStreaming()
+    func stopStreaming()
     func save()
 
     func hasTweet(for row: Int) -> Bool

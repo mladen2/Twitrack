@@ -10,7 +10,7 @@ import Foundation
 
 // test
 let tweetExpiryPeriod: TimeInterval = 15 // seconds
-var searchTerms = ["Brexit"]
+var defaultSearchTerms = ["I", "me"]
 
 let urlCallback = "twitrack://success"
 

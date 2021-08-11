@@ -46,6 +46,11 @@ class MainInteractor: PresenterToInteractorMainProtocol {
         scheduleRemovalTimer()
     }
 
+    func stopStreaming() {
+        networkService.stop()
+    }
+
+
     func save() {
 
     }
