@@ -7,14 +7,12 @@
 
 import Foundation
 
-
 struct RegexConstants {
     static let open = "("
     static let wordDelimiter = "\\b"
     static let or = "|"
     static let close = ")"
 }
-
 
 class RegexHelper {
 

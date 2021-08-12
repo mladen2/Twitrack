@@ -9,8 +9,6 @@ import Foundation
 
 class TwitterImageService {
 
-//    let baseURL = "https://pbs.twimg.com/profile_images" // if needed it comes in anyway
-
     var decoder: JSONDecoder
     var session: URLSession
 
@@ -20,12 +18,12 @@ class TwitterImageService {
     }
 
     func fetchAvatar(_ query: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        pr()
+
         guard let url = URL(string: query) else {
-            completion(.failure(NSError(domain: "Unable to build the url from \(query)", code: -999, userInfo: nil)))
+            completion(.failure(NSError(domain: "Unable to build the url from \(query)", code: -998, userInfo: nil)))
             return
         }
-        pr("url: \(url)")
+
         session.dataTask(with: url) { data, _, error in
             if let error = error {
                 completion(.failure(error))

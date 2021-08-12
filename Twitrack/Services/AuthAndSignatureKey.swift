@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct AuthAndSignatureKey {
 
     // Signature only

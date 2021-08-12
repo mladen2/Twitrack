@@ -8,11 +8,6 @@
 
 import UIKit
 
-// TODO: remove me
-class DataManager {
-    static let shared = DataManager()
-}
-
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewMainProtocol {
 
@@ -20,15 +15,14 @@ protocol PresenterToViewMainProtocol {
 
     func onDataRefresh()
     func onError(error: String)
+    func showMessage(_ string: String)
 
-    func stopStreaming()
-
+    func toggleStreaming()
 }
-
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterMainProtocol {
-    
+
     var view: PresenterToViewMainProtocol? { get set }
     var interactor: PresenterToInteractorMainProtocol? { get set }
     var router: PresenterToRouterMainProtocol? { get set }
@@ -36,7 +30,7 @@ protocol ViewToPresenterMainProtocol {
 //    var tweets: [Tweet]? { get set }
 
     func viewDidLoad()
-    func stopStreaming()
+    func toggleStreaming()
 
     func didSelect(_ row: Int)
 
@@ -49,10 +43,9 @@ protocol ViewToPresenterMainProtocol {
     func timeCreated(for row: Int) -> String
 }
 
-
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorMainProtocol {
-    
+
     var presenter: InteractorToPresenterMainProtocol? { get set }
     var dataManager: DataManager { get set }
     var networkService: NetworkService { get set }
@@ -62,30 +55,31 @@ protocol PresenterToInteractorMainProtocol {
 
     func startStreaming()
     func stopStreaming()
+    func toggleStreaming()
     func save()
 
     func hasTweet(for row: Int) -> Bool
     func tweet(for row: Int) -> Tweet?
 }
 
-
 // MARK: Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterMainProtocol {
     func refreshData()
     func onError(error: Error)
+    func showMessage(_ message: String, isExpire: Bool)
 }
-
 
 // MARK: Router Input (Presenter -> Router)
 protocol PresenterToRouterMainProtocol {
 
     static func createModule() -> UINavigationController
-    func pushToDetails(for tweet: Tweet)
-    
+    func pushToDetails(on view: PresenterToViewMainProtocol, with tweet: Tweet)
+
 }
 
 protocol NetworkDelegate {
     func newTweet(_ tweet: Tweet)
     func showError(_ error: Error)
+    func showMessage(_ message: String)
     func networkDisconnected()
 }

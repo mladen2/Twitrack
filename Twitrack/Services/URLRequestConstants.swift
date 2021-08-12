@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct URLRequestConstants {
     static let oAuth = "OAuth "
     static let method = "HMAC-SHA1"

@@ -8,9 +8,10 @@
 import Foundation
 
 
-// test
 let tweetExpiryPeriod: TimeInterval = 15 // seconds
-var defaultSearchTerms = ["I", "me"]
+//var defaultSearchTerms = ["I", "me"]
+//var defaultSearchTerms = ["Brexit"]
+var defaultSearchTerms = ["spacex"]
 
 let urlCallback = "twitrack://success"
 
@@ -40,6 +41,5 @@ struct TwitterConstant {
 struct StreamParamName {
     static let track = "track"
     static let follow = "follow"
+    static let locations = "locations"
 }
-
-

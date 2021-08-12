@@ -15,12 +15,11 @@ struct TwitterSampleString {
     static let baseString = "POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521"
 }
 
-
 extension HttpSignature {
-    
+
     // build params
     func createSampleParamsDict() -> [String: String] {
-        
+
         let dict = [
             "status": "Hello Ladies + Gentlemen, a signed OAuth request!",
             "include_entities": "true",
@@ -33,13 +32,13 @@ extension HttpSignature {
         ]
         return dict
     }
-    
+
     static func test() {
-        
+
         let sig = HttpSignature(method: .POST, baseURL: "https://api.twitter.com/1.1/statuses/update.json", twitterAuthSigParams: TwitterAuthSignature.twitterExample)
-        
+
         //        let sampleDict = sig.createSampleParamsDict()
-        
+
         //        let paramString = sig.buildParamsString(sampleDict)
         let paramString = sig.buildParamsString()
         pr("paramString: \(paramString)")
@@ -51,7 +50,7 @@ extension HttpSignature {
         //let hmac = signSha1Hmac(key: sampleKey, baseString: sampleBaseString)
         //let hmac = signSha1Hmac(key: theKey, baseString: sampleBaseString)
         let hmac = sig.signSha1Hmac(key: theKey, baseString: baseString)
-        
+
         pr("target: hCtSmYh+iHYCEqBWrE7C7hYmtUk=")
         pr("  hmac: \(hmac)")
         let hmacOK = hmac == "hCtSmYh+iHYCEqBWrE7C7hYmtUk="

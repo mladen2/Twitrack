@@ -22,4 +22,10 @@ extension Date {
             return nil
         }
     }
+
+    var stringValue: String {
+        let fmt = DateFormatter()
+        fmt.dateFormat = twitterDateFormat
+        return fmt.string(from: self)
+    }
 }
