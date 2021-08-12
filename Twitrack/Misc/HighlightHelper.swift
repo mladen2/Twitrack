@@ -12,7 +12,6 @@ class HighlightHelper {
     static let highlightColour = UIColor.systemRed
     static let highlightFont = UIFont.boldSystemFont(ofSize: 20)
 
-
     static func highlight(in string: String) -> NSAttributedString {
         return highlight(words: defaultSearchTerms, in: string)
     }
@@ -27,7 +26,7 @@ class HighlightHelper {
 
         var ranges = [NSRange]()
         let stringRange = NSRange(location: 0, length: string.utf16.count)
-        regex.enumerateMatches(in: string, options: [], range: stringRange) { match, _, stop in
+        regex.enumerateMatches(in: string, options: [], range: stringRange) { match, _, _ in
             guard let match = match else { return }
             ranges.append(match.range)
         }

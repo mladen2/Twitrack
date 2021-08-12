@@ -7,13 +7,14 @@
 
 import Foundation
 
-
 public enum LocalError: Error {
-    case badURL(String?)
-    case badCallbackURL(String)
+    case badURL(url: String?)
+    case badCallbackURL(url: String)
     case networkDisconnected
-    case jsonError(String)
+    case jsonError(message: String) // 3
     case serverErrorReceived
+    case urlSessionBecameInvalid
+    case urlSessionCompletedWithError // 6
     case cannotConvertUTF8ToData
     case cannotConvertStringToURL
     case completionHandlerMustBeSetBeforeCallingPost

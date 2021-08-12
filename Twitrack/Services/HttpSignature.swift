@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class HttpSignature {
 
     var httpMethod: HTTPMethod = .POST
@@ -27,15 +26,8 @@ class HttpSignature {
         if let otherParams = twitterAuthSigParams.otherParams {
             params = params.merging(otherParams) { $1 }
         }
-
-        pr("params: \(params)")
         let encodedDict = percentEncodeKeysValues(params)
-    //    pr("encodedDict: \(encodedDict)")
         let str = composeParamsString(encodedDict)
-    //    pr("str: \(str)")
-//        let paramStringOK = str == TwitterSampleString.param
-//        assert(paramStringOK)
-//        pr("param str ok? \(paramStringOK)")
         return str
     }
 
@@ -51,7 +43,6 @@ class HttpSignature {
 
     func composeParamsString(_ encodedParams: [String: String]) -> String {
         let encodedKeys = Array(encodedParams.keys).sorted()
-        pr("encodedKeys, sorted: \(encodedKeys)")
 
         var str = ""
         var count = 0
@@ -77,9 +68,6 @@ class HttpSignature {
         str += baseURL.addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowedFull) ?? ""
         str += URLRequestConstants.urlParamDelimiter
         str += paramString.addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowedFull) ?? ""
-//        let baseStrOK = str == TwitterSampleString.baseString
-//        assert(baseStrOK)
-//        pr("baseString ok? \(baseStrOK)")
         return str
     }
 
@@ -89,7 +77,6 @@ class HttpSignature {
     let sampleOathTokenSecret = "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
 
     func buildTheKey(consumerSecret: String, oathTokenSecret: String) -> String {
-        pr("consumerSecret: \(consumerSecret), oathTokenSecret: \(oathTokenSecret)")
         var str = ""
         str += consumerSecret.addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowedFull) ?? ""
         str += URLRequestConstants.urlParamDelimiter
@@ -108,13 +95,9 @@ class HttpSignature {
 
     func sha1HmacSig() -> String {
         let paramString = buildParamsString()
-        pr("paramString: \(paramString)")
         let baseString = buildBaseString(paramString)
-        pr("baseString: \(baseString)")
         let theKey = buildTheKey(consumerSecret: twitterAuthSigParams.oauthConsumerSecret ?? "", oathTokenSecret: twitterAuthSigParams.oauthTokenSecret ?? "")
-        pr("theKey: \(theKey)")
         let sig = signSha1Hmac(key: theKey, baseString: baseString)
-        pr("sig: \(sig)")
         return sig
     }
 }

@@ -26,6 +26,12 @@ class MainViewController: UIViewController {
         return tableView
     }()
 
+    lazy var infoLabel: UILabel = {
+        var label = UILabel.label(.footnote, text: "", textColour: UIColor.secondaryLabel)
+//        label.backgroundColor = .systemYellow
+        return label
+    }()
+
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
 
@@ -38,8 +44,8 @@ class MainViewController: UIViewController {
     }
 
     @objc
-    func stopStreaming() {
-        presenter?.stopStreaming()
+    func toggleStreaming() {
+        presenter?.toggleStreaming()
     }
 }
 
@@ -50,13 +56,19 @@ extension MainViewController: PresenterToViewMainProtocol {
             self.tableView.reloadData()
         }
     }
-    
+
     func onError(error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         DispatchQueue.main.async {
             self.present(alert, animated: true) {
             }
+        }
+    }
+
+    func showMessage(_ message: String) {
+        DispatchQueue.main.async {
+            self.infoLabel.text = message
         }
     }
 }
@@ -115,8 +127,13 @@ extension MainViewController {
             tableView.leadingAnchor.constraint(equalTo: guide.leadingAnchor)
         ])
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: UIBarButtonItem.Style.plain, target: self, action: #selector(stopStreaming))
-        //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reload", style: UIBarButtonItem.Style.plain, target: self, action: #selector(reload(_:)))
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Restart", style: UIBarButtonItem.Style.plain, target: self, action: #selector(restart(_:)))
+        view.addSubview(infoLabel)
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            infoLabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -4),
+            infoLabel.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -4)
+        ])
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: UIBarButtonItem.Style.plain, target: self, action: #selector(toggleStreaming))
     }
 }

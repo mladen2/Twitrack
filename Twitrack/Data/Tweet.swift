@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 typealias SortDescriptor<Value> = (Value, Value) -> Bool
 
 let tweetByDateCreatedDesc: SortDescriptor<Tweet> = {
@@ -22,18 +21,24 @@ let tweetByDateCreatedAsc: SortDescriptor<Tweet> = {
     return $0.createdAtDate! < $1.createdAtDate!
 }
 
+/// class instead of struct because structs don't support recursive fields
+/// here there is at least Tweet/retweetedStatus
+
 class Tweet: Decodable, Identifiable, Equatable {
 
     var id: Int
-//    var idStr: String
+    var idStr: String
     var text: String?
-    var textHighlighted: NSAttributedString {
+    var fullText: String?
+    var fullTextAny: String {
         let retw = retweetedStatus?.extendedTweet?.fullText
         let extt = extendedTweet?.fullText
         let text2 = extt ?? retw ?? fullText ?? text ?? ""
-        return HighlightHelper.highlight(in: text2)
+        return text2
     }
-    var fullText: String?
+    var textHighlighted: NSAttributedString {
+        HighlightHelper.highlight(in: fullTextAny)
+    }
 
     var createdAt: String
     var createdAtDate: Date? {
@@ -43,18 +48,41 @@ class Tweet: Decodable, Identifiable, Equatable {
     var timeReceived: Date? = Date() // not doing anything, or is it
 
     var user: User
-    var retweetedStatus: Tweet?
-    var extendedTweet: ExtendedTweet?
+    var retweetedStatus: Tweet? // needed for obtaining the full status
+    var extendedTweet: ExtendedTweet? // ditto
 
     var favoriteCount: Int
     var retweetCount: Int
     var replyCount: Int?
 
+    var hasGeoData: Bool {
+        coordinates != nil || place != nil || geo != nil
+    }
+    var geoLocation: LocationPoint? {
+
+        if let coor = coordinates {
+            return LocationPoint(coor.coordinates)
+        }
+
+        if let coor = geo?.coordinates {
+            return LocationPoint(coor.reversed()) // latt long -> long, lat
+        }
+
+        if let boundingBox = place?.boundingBox {
+            return boundingBox.centre
+        }
+
+        return nil
+    }
     var coordinates: Coordinates?
+    var place: Place?
+    var geo: Geo?
+
     var errors: [TwitterError]?
 
     init() {
         self.id = 123
+        self.idStr = "123"
         self.text = "text"
         self.fullText = "fullText"
         self.createdAt = "createdAt"
@@ -68,8 +96,9 @@ class Tweet: Decodable, Identifiable, Equatable {
         self.errors = nil
     }
 
-    internal init(id: Int, text: String? = nil, fullText: String? = nil, createdAt: String, timeReceived: Date? = nil, user: User, retweetedStatus: Tweet? = nil, favoriteCount: Int, retweetCount: Int, replyCount: Int? = nil, coordinates: Coordinates? = nil, errors: [TwitterError]? = nil) {
+    internal init(id: Int, idStr: String, text: String? = nil, fullText: String? = nil, createdAt: String, timeReceived: Date? = nil, user: User, retweetedStatus: Tweet? = nil, favoriteCount: Int, retweetCount: Int, replyCount: Int? = nil, coordinates: Coordinates? = nil, errors: [TwitterError]? = nil) {
         self.id = id
+        self.idStr = idStr
         self.text = text
         self.fullText = fullText
         self.createdAt = createdAt
@@ -90,14 +119,34 @@ class Tweet: Decodable, Identifiable, Equatable {
 
 extension Tweet {
 
+    convenience init(_ tweetDB: TweetDB) {
+        self.init()
+        self.idStr = tweetDB.idStr ?? ""
+
+        self.createdAt = tweetDB.createdAt?.stringValue ?? ""
+        self.timeReceived = tweetDB.dateReceived
+
+        self.text = tweetDB.text
+        self.fullText = tweetDB.fullText
+        self.favoriteCount = Int(tweetDB.favoriteCount)
+        self.replyCount = Int(tweetDB.replyCount)
+        self.retweetCount = Int(tweetDB.retweetCount)
+
+        if tweetDB.lattitude != 0 && tweetDB.longitude != 0 {
+            self.coordinates = Coordinates(type: BoundingBoxType.Point.rawValue, coordinates: tweetDB.longitudeLattitude)
+        }
+
+        self.user = tweetDB.user != nil ? User(tweetDB.user!) : User.test
+    }
 }
+
 
 extension Tweet {
 
     static var test: Tweet {
 
         let tweet = Tweet(id: 12345678,
-//                          idStr: UUID().uuidString,
+                          idStr: "12345678",
                           text: """
             You could write separate domain and persistence layers (separate modules even better)
 
@@ -116,38 +165,7 @@ extension Tweet {
     }
 }
 
-struct User: Decodable, Identifiable, Equatable {
 
-    var id: Int
-    var name: String
-    var screenName: String
-    var location: String?
-
-    var createdAt: String
-
-    var profileImageUrlHttps: String?
-    var avatarImageData: Data?
-    var avatarImage: UIImage? {
-        if let data = avatarImageData,
-           let image = UIImage(data: data) {
-            return image
-        }
-        return nil
-    }
-
-    var followersCount: Int
-    var statusesCount: Int
-    var errors: [TwitterError]?
-}
-
-extension User {
-
-    static var test: User {
-        let user = User(id: 123456778, name: "Test User", screenName: "Test User", location: "Berlin", createdAt: "1234", profileImageUrlHttps: "test.com", avatarImageData: RandomSystemImage.image.pngData(), followersCount: 1, statusesCount: 2)
-        return user
-    }
-
-}
 
 struct ExtendedTweet: Decodable {
     let fullText: String
@@ -158,6 +176,80 @@ struct TwitterError: Decodable, Equatable {
     var message: String
 }
 
-struct Coordinates: Decodable, Equatable {
+// 1. long 2. lat?
+struct Geo: Decodable {
+    let type: String
+    let coordinates: [Double]
+}
 
+// 1. lat, 2. long?
+struct Coordinates: Decodable {
+    let type: String
+    let coordinates: [Double]
+}
+
+struct Place: Decodable {
+    let id: String
+    let url: String
+    let placeType: String
+    let name: String
+    let boundingBox: BoundingBox
+}
+
+struct BoundingBox: Decodable {
+    let type: String
+    let coordinates: [[[Double]]]
+}
+
+/**
+ "bounding_box": {
+     "type": "Polygon",
+     "coordinates": [
+         [
+             [
+                 -87.940033,
+                 41.644102
+             ],
+             [
+                 -87.940033,
+                 42.023067
+             ],
+             [
+                 -87.523993,
+                 42.023067
+             ],
+             [
+                 -87.523993,
+                 41.644102
+             ]
+         ]
+     ]
+ },
+ */
+
+enum BoundingBoxType: String {
+    case Polygon, Point
+}
+
+extension BoundingBox {
+
+    var centre: LocationPoint? {
+
+        guard let type = BoundingBoxType(rawValue: type) else { return nil }
+
+        switch type {
+
+        case .Polygon:
+            guard let locations = coordinates.first else { return nil }
+            let rect = LocationRect(locations)
+            return rect?.centre
+
+        case .Point:
+            // not sure if bounding box will be sent with one point only, probably not
+            if let first = coordinates.first?.first {
+                return LocationPoint(first)
+            }
+        }
+        return nil
+    }
 }

@@ -20,6 +20,8 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     var lock = DispatchSemaphore(value: 1)
     var removalTimer: Timer?
 
+    var firstTweetReceived: Bool = false
+
     init(dataManager: DataManager = .shared, networkService: NetworkService = .init(), imageService: TwitterImageService = .init()) {
         self.dataManager = dataManager
         self.networkService = networkService
@@ -37,22 +39,34 @@ class MainInteractor: PresenterToInteractorMainProtocol {
             switch res {
             case .success(let success):
                 pr("started streaming \(success)")
-
+                presenter?.showMessage("Awaiting data...", isExpire: false)
+                scheduleRemovalTimer()
+                purgeExpiredLocalData()
 
             case .failure(let error):
+                showLocalData()
                 presenter?.onError(error: error)
             }
         }
-        scheduleRemovalTimer()
     }
 
     func stopStreaming() {
+        removalTimer?.invalidate()
         networkService.stop()
+        save()
     }
 
+    func toggleStreaming() {
+        if networkService.isStreaming {
+            stopStreaming()
+            showLocalData()
+        } else {
+            startStreaming()
+        }
+    }
 
     func save() {
-
+        dataManager.save(tweets)
     }
 
     func hasTweet(for row: Int) -> Bool {
@@ -73,8 +87,11 @@ class MainInteractor: PresenterToInteractorMainProtocol {
 extension MainInteractor {
 
     fileprivate func fetchAndAddImage(_ tweet: Tweet) {
+
         pr("tweet: \(String(describing: tweet.fullText))")
+
         fetchImage(for: tweet.user) { res in
+
             switch res {
 
             case .success(let data):
@@ -94,7 +111,7 @@ extension MainInteractor {
 
     func fetchImage(for user: User, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = user.profileImageUrlHttps else {
-            completion(.failure(LocalError.badURL(user.profileImageUrlHttps)))
+            completion(.failure(LocalError.badURL(url: user.profileImageUrlHttps)))
             return
         }
         imageService.fetchAvatar(url) { res in
@@ -110,8 +127,8 @@ extension MainInteractor {
 
         pr()
         removalTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            let now = Date()
-            let _5SecondsAgo = now.addingTimeInterval(-tweetExpiryPeriod)
+
+            let _5SecondsAgo = Date().addingTimeInterval(-tweetExpiryPeriod)
 
             let expiredTweets = self.tweets.filter { tweet in
                 if let tr = tweet.timeReceived {
@@ -137,6 +154,10 @@ extension MainInteractor {
 extension MainInteractor: NetworkDelegate {
 
     func newTweet(_ tweet: Tweet) {
+        if !firstTweetReceived {
+            firstTweetReceived = true
+            showMessage("")
+        }
         if tweet.user.avatarImageData == nil {
             self.fetchAndAddImage(tweet)
         }
@@ -147,11 +168,62 @@ extension MainInteractor: NetworkDelegate {
     }
 
     func networkDisconnected() {
-        presenter?.onError(error: LocalError.networkDisconnected)
+        presenter?.showMessage(LocalError.networkDisconnected.localizedDescription, isExpire: true)
+        showLocalData()
     }
 
     func showError(_ error: Error) {
         pr("error: \(error.localizedDescription)")
-//        presenter?.onError(error: error)
+
+        switch error {
+        case LocalError.jsonError(let msg):
+            showMessage(msg)
+
+        default:
+            if error.localizedDescription == "cancelled" {
+                showMessage(error.localizedDescription)
+                firstTweetReceived = false
+            } else {
+                presenter?.onError(error: error)
+            }
+        }
+
+        if !networkService.isStreaming {
+            removalTimer?.invalidate()
+            showLocalData()
+        }
+    }
+
+    func showMessage(_ message: String) {
+        presenter?.showMessage(message, isExpire: true)
+    }
+}
+
+// MARK: -
+// MARK: CoreData
+// MARK: -
+extension MainInteractor {
+
+    func showLocalData() {
+        guard let tweetsDB = dataManager.tweets(), !tweetsDB.isEmpty else { return }
+        self.tweets = tweetsDB.tweets()
+        presenter?.refreshData()
+        showMessage("Showing local data")
+    }
+
+    func purgeExpiredLocalData() {
+        guard let tweetsDB = dataManager.tweets(), !tweetsDB.isEmpty else { return }
+        dataManager.purgeExpired(before: Date().addingTimeInterval(-tweetExpiryPeriod))
+    }
+}
+
+extension Array where Element : TweetDB {
+    func tweets() -> [Tweet] {
+        guard !self.isEmpty else { return [] }
+        var newTweets = [Tweet]()
+        for tweetDB in self {
+            newTweets.append(Tweet(tweetDB))
+        }
+        return newTweets
     }
 }

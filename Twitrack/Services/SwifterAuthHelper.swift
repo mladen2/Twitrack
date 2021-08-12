@@ -9,12 +9,11 @@ import UIKit
 import SwifteriOS
 import AuthenticationServices
 
-
 class SwifterAuthHelper {
 
     var swifter2: Swifter?
 
-    func initSwifter(on viewController: ASWebAuthenticationPresentationContextProviding, completion: @escaping (Result<Bool,Error>) -> Void) {
+    func initSwifter(on viewController: ASWebAuthenticationPresentationContextProviding, completion: @escaping (Result<Bool, Error>) -> Void) {
 
         pr()
 
@@ -30,11 +29,11 @@ class SwifterAuthHelper {
             swifter2 = Swifter(consumerKey: TwitterConstant.APIKey, consumerSecret: TwitterConstant.APISecretKey)
 
             guard let callbackUrl = URL(string: urlCallback) else {
-                completion(.failure(LocalError.badCallbackURL(urlCallback)))
+                completion(.failure(LocalError.badCallbackURL(url: urlCallback)))
                 return
             }
 
-            swifter2?.authorize(withProvider: viewController, callbackURL: callbackUrl) { credential, response in
+            swifter2?.authorize(withProvider: viewController, callbackURL: callbackUrl) { credential, _ in
 
 //                pr("credential: \(String(describing: credential)), response: \(response)")
 //                pr("self.swifter2?.client.credential?.accessToken: \(String(describing: self.swifter2?.client.credential?.accessToken))")

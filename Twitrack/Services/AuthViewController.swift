@@ -10,7 +10,6 @@ import AuthenticationServices
 
 class AuthViewController: UIViewController, ASWebAuthenticationPresentationContextProviding {
 
-
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         self.view.window ?? ASPresentationAnchor()
     }
@@ -26,7 +25,6 @@ class AuthViewController: UIViewController, ASWebAuthenticationPresentationConte
         pr()
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
