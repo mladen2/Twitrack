@@ -88,7 +88,7 @@ extension MainInteractor {
 
     fileprivate func fetchAndAddImage(_ tweet: Tweet) {
 
-        pr("tweet: \(String(describing: tweet.fullText))")
+//        pr("tweet: \(String(describing: tweet.fullText))")
 
         fetchImage(for: tweet.user) { res in
 
@@ -125,7 +125,6 @@ extension MainInteractor {
             removalTimer?.invalidate()
         }
 
-        pr()
         removalTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
 
             let _5SecondsAgo = Date().addingTimeInterval(-tweetExpiryPeriod)
