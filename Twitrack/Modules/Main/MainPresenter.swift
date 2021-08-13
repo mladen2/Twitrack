@@ -20,7 +20,6 @@ class MainPresenter: ViewToPresenterMainProtocol {
     var timer: Timer?
 
     func viewDidLoad() {
-        pr()
         showMessage("Connecting...")
         SwifterAuthHelper().initSwifter(on: AuthViewController.instance()) { res in
 

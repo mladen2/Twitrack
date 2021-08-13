@@ -34,23 +34,28 @@ class NetworkService: NSObject {
 
     func startStreaming(completion: (Result<Bool, Error>) -> Void) {
 
+        // track
 //        theSearchTerms = paramTermsString(defaultSearchTerms)
 //        let query = baseURL + URLRequestConstants.startParams + trackTerms(theSearchTerms)
 
+        // location
         var arr2 = [String]()
-//        let locs = [-122.75,36.8,-121.75,37.8] // san fran.
+        let locs = [-122.75,36.8,-121.75,37.8] // san fran.
         // [long, lat]
-        let locs = [13.218791,43.48012,21.225747,45.753836] // zag -> Sa
+//        let locs = [13.218791,43.48012,21.225747,45.753836] // zag -> Sa
         // lon
 //        let locs = [-0.206077,51.474422,-0.075958,51.537462] // lon
         for loc in locs {
             arr2.append("\(loc)")
         }
 
-//        theSearchTerms = paramTermsString(defaultSearchTerms)
-        theSearchTerms = paramTermsString(arr2)
 
+        theSearchTerms = paramTermsString(arr2)
         let query = baseURL + URLRequestConstants.startParams + locations()
+
+        // follow
+//        theSearchTerms = "elonmusk"
+//        let query = baseURL + URLRequestConstants.startParams + trackTerms(theSearchTerms)
 
         guard let url = URL(string: query) else {
             completion(.failure(LocalError.badURL(url: query)))
@@ -88,6 +93,7 @@ extension NetworkService {
             oauthTokenSecret: cred?.accessToken?.secret ?? "",
             oauthVersion: URLRequestConstants.version,
 //            otherParams: [StreamParamName.track: theSearchTerms]
+//            otherParams: [StreamParamName.follow: theSearchTerms]
             otherParams: [StreamParamName.locations: theSearchTerms]
         )
 
@@ -105,11 +111,15 @@ extension NetworkService {
     }
 
     func trackTerms(_ searchParamsString: String) -> String {
-        return StreamParamName.track + URLRequestConstants.paramDelimiter + searchParamsString
+        StreamParamName.track + URLRequestConstants.paramDelimiter + searchParamsString
+    }
+
+    func follow(_ searchParamsString: String) -> String {
+        StreamParamName.follow + URLRequestConstants.paramDelimiter + searchParamsString
     }
 
     func locations() -> String {
-        return StreamParamName.locations + URLRequestConstants.paramDelimiter + theSearchTerms
+        StreamParamName.locations + URLRequestConstants.paramDelimiter + theSearchTerms
     }
 
     func paramTermsString(_ terms: [String]) -> String {

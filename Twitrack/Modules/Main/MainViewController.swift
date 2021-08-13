@@ -38,7 +38,6 @@ class MainViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        pr()
         setupUI()
         presenter?.viewDidLoad()
     }
@@ -85,7 +84,7 @@ extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let ret = presenter?.interactor?.tweets.count ?? 0
-        pr("there are : \(ret) tweets")
+//        pr("there are : \(ret) tweets")
         return ret
     }
 

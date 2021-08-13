@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIStackView {
-    static func stack(_ spacing: CGFloat) -> UIStackView {
+    static func stack(_ spacing: CGFloat = 12) -> UIStackView {
         let stack = UIStackView()
         stack.alignment = .center
         stack.distribution = .fillProportionally

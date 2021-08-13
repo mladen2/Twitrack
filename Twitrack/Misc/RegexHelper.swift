@@ -53,7 +53,7 @@ class RegexHelper {
             }
         }
 
-        print("regexPattern: \(regexPattern)")
+        pr("regexPattern: \(regexPattern)")
         return regexPattern
     }
 }

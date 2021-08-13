@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        pr()
         return true
     }
 
@@ -22,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
-        pr()
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
@@ -30,13 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-        pr()
     }
 
     // MARK: - Core Data stack
 
     lazy var persistentContainer: PersistentContainer = {
-        pr()
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -65,12 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     var viewContext: NSManagedObjectContext {
-        pr()
         return persistentContainer.viewContext
     }
 
     func saveContext(backgroundContext: NSManagedObjectContext? = nil) {
-        pr()
         let context = backgroundContext ?? viewContext
         guard context.hasChanges else { return }
         do {
@@ -79,5 +73,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Error: \(error), \(error.userInfo)")
         }
     }
-
 }
