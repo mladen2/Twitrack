@@ -8,6 +8,7 @@
 import UIKit
 import SwifteriOS
 import AuthenticationServices
+import TwitterStreamService
 
 class SwifterAuthHelper {
 
