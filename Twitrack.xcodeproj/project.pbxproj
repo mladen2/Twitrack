@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,28 +22,14 @@
 		923B6E3626C2E3D500171061 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3526C2E3D400171061 /* MainTableViewCell.swift */; };
 		923B6E3926C2E48C00171061 /* MiscUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3826C2E48C00171061 /* MiscUtils.swift */; };
 		923B6E3B26C2E61900171061 /* Label+DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */; };
-		923B6E3E26C2E9D700171061 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3D26C2E9D700171061 /* NetworkService.swift */; };
 		923B6E4026C2EA7E00171061 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3F26C2EA7E00171061 /* Constants.swift */; };
-		923B6E4226C2ECF800171061 /* LocalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4126C2ECF800171061 /* LocalError.swift */; };
 		923B6E4426C2F15500171061 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4326C2F15500171061 /* Tweet.swift */; };
-		923B6E4626C3164B00171061 /* HttpSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4526C3164B00171061 /* HttpSignature.swift */; };
-		923B6E4826C3168100171061 /* HttpSignature+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4726C3168100171061 /* HttpSignature+Test.swift */; };
-		923B6E4A26C316C500171061 /* TwitterAuthSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4926C316C500171061 /* TwitterAuthSignature.swift */; };
-		923B6E4C26C3171600171061 /* AuthAndSignatureKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4B26C3171600171061 /* AuthAndSignatureKey.swift */; };
-		923B6E4E26C3175F00171061 /* URLRequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4D26C3175F00171061 /* URLRequestConstants.swift */; };
-		923B6E5026C317B500171061 /* CharacterSet+URLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4F26C317B500171061 /* CharacterSet+URLQuery.swift */; };
-		923B6E5226C3185000171061 /* String+SHA1Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E5126C3185000171061 /* String+SHA1Digest.swift */; };
-		923B6E5426C318C900171061 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E5326C318C900171061 /* AuthHelper.swift */; };
 		923B6E6826C3196800171061 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923B6E5E26C3195B00171061 /* SwifteriOS.framework */; };
 		923B6E6926C3196800171061 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 923B6E5E26C3195B00171061 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		923B6E6D26C31CC900171061 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E6C26C31CC900171061 /* Authorization.swift */; };
-		923B6E6F26C31E7A00171061 /* SwifterAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */; };
-		923B6E7126C331F500171061 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7026C331F500171061 /* AuthViewController.swift */; };
 		923B6E7326C334FB00171061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923B6E7226C334FB00171061 /* Main.storyboard */; };
 		923B6E7526C3388D00171061 /* RandomSystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7426C3388D00171061 /* RandomSystemImage.swift */; };
 		923B6E7926C338D300171061 /* Date+TwitterFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7826C338D300171061 /* Date+TwitterFormat.swift */; };
 		924C91AE26C345A100519970 /* Date+Ago.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924C91A826C345A100519970 /* Date+Ago.swift */; };
-		924C91B026C349CC00519970 /* TwitterImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924C91AF26C349CC00519970 /* TwitterImageService.swift */; };
 		924CD44D26C4388000B2C252 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD44C26C4388000B2C252 /* CoreDataStack.swift */; };
 		924CD45426C438F800B2C252 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD45326C438F800B2C252 /* PersistentContainer.swift */; };
 		924CD45626C515C700B2C252 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD45526C515C700B2C252 /* DataManager.swift */; };
@@ -66,6 +52,10 @@
 		92F22CDA26C6158F00808C22 /* UserDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F22CD626C6158E00808C22 /* UserDB+CoreDataProperties.swift */; };
 		92F22CDB26C6158F00808C22 /* UserDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F22CD726C6158E00808C22 /* UserDB+CoreDataClass.swift */; };
 		92F22CDC26C6158F00808C22 /* TweetDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F22CD826C6158E00808C22 /* TweetDB+CoreDataClass.swift */; };
+		92F22D0126C6239A00808C22 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E5326C318C900171061 /* AuthHelper.swift */; };
+		92F22D0226C6239A00808C22 /* SwifterAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */; };
+		92F22D1D26C624BD00808C22 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7026C331F500171061 /* AuthViewController.swift */; };
+		92F22D3226C630F400808C22 /* TwitterStreamService in Frameworks */ = {isa = PBXBuildFile; productRef = 92F22D3126C630F400808C22 /* TwitterStreamService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F22D3226C630F400808C22 /* TwitterStreamService in Frameworks */,
 				923B6E6826C3196800171061 /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +421,9 @@
 			dependencies = (
 			);
 			name = Twitrack;
+			packageProductDependencies = (
+				92F22D3126C630F400808C22 /* TwitterStreamService */,
+			);
 			productName = Twitrack;
 			productReference = 923B6DF026C2DC7E00171061 /* Twitrack.app */;
 			productType = "com.apple.product-type.application";
@@ -501,6 +495,9 @@
 				Base,
 			);
 			mainGroup = 923B6DE726C2DC7E00171061;
+			packageReferences = (
+				92F22D3026C630F400808C22 /* XCRemoteSwiftPackageReference "TwitterStreamService" */,
+			);
 			productRefGroup = 923B6DF126C2DC7E00171061 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -589,8 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F22CD226C5F00900808C22 /* MiscExtensions.swift in Sources */,
-				923B6E4226C2ECF800171061 /* LocalError.swift in Sources */,
-				923B6E4C26C3171600171061 /* AuthAndSignatureKey.swift in Sources */,
+				92F22D1D26C624BD00808C22 /* AuthViewController.swift in Sources */,
 				92E8FB2526C3D6C800A033A4 /* Int+Format.swift in Sources */,
 				923B6E2E26C2DCE900171061 /* MainViewController.swift in Sources */,
 				923B6E3B26C2E61900171061 /* Label+DynamicFont.swift in Sources */,
@@ -598,11 +594,11 @@
 				923B6E2C26C2DCE900171061 /* MainPresenter.swift in Sources */,
 				923B6E2B26C2DCE900171061 /* MainContract.swift in Sources */,
 				92B8113C26C3C4CA00BF9A40 /* RegexHelper.swift in Sources */,
+				92F22D0226C6239A00808C22 /* SwifterAuthHelper.swift in Sources */,
 				92E8FB1026C3D01E00A033A4 /* DetailsViewController.swift in Sources */,
-				923B6E4826C3168100171061 /* HttpSignature+Test.swift in Sources */,
 				92F22CDB26C6158F00808C22 /* UserDB+CoreDataClass.swift in Sources */,
-				923B6E7126C331F500171061 /* AuthViewController.swift in Sources */,
 				92F22CD026C5CB0A00808C22 /* UIImageView+Boilerplate.swift in Sources */,
+				92F22D0126C6239A00808C22 /* AuthHelper.swift in Sources */,
 				923B6E7526C3388D00171061 /* RandomSystemImage.swift in Sources */,
 				92E8FB0D26C3D01E00A033A4 /* DetailsContract.swift in Sources */,
 				923B6E4426C2F15500171061 /* Tweet.swift in Sources */,
@@ -616,15 +612,10 @@
 				923B6DFE26C2DC7E00171061 /* Twitrack.xcdatamodeld in Sources */,
 				923B6DF626C2DC7E00171061 /* SceneDelegate.swift in Sources */,
 				92F22CCA26C58B9800808C22 /* Double+2Significant.swift in Sources */,
-				923B6E4626C3164B00171061 /* HttpSignature.swift in Sources */,
 				92F22CDC26C6158F00808C22 /* TweetDB+CoreDataClass.swift in Sources */,
-				923B6E6D26C31CC900171061 /* Authorization.swift in Sources */,
-				923B6E4A26C316C500171061 /* TwitterAuthSignature.swift in Sources */,
 				923B6E2D26C2DCE900171061 /* MainRouter.swift in Sources */,
 				92E8FB1126C3D01E00A033A4 /* DetailsInteractor.swift in Sources */,
-				923B6E5026C317B500171061 /* CharacterSet+URLQuery.swift in Sources */,
 				92E8FB0F26C3D01E00A033A4 /* DetailsRouter.swift in Sources */,
-				923B6E5426C318C900171061 /* AuthHelper.swift in Sources */,
 				92E8FB0126C3C85F00A033A4 /* HighlightHelper.swift in Sources */,
 				924CD45626C515C700B2C252 /* DataManager.swift in Sources */,
 				924CD45426C438F800B2C252 /* PersistentContainer.swift in Sources */,
@@ -634,11 +625,6 @@
 				923B6E7926C338D300171061 /* Date+TwitterFormat.swift in Sources */,
 				92E8FB2126C3D43400A033A4 /* UIStackView+Boilerplate.swift in Sources */,
 				92F22CD926C6158F00808C22 /* TweetDB+CoreDataProperties.swift in Sources */,
-				923B6E3E26C2E9D700171061 /* NetworkService.swift in Sources */,
-				923B6E5226C3185000171061 /* String+SHA1Digest.swift in Sources */,
-				924C91B026C349CC00519970 /* TwitterImageService.swift in Sources */,
-				923B6E4E26C3175F00171061 /* URLRequestConstants.swift in Sources */,
-				923B6E6F26C31E7A00171061 /* SwifterAuthHelper.swift in Sources */,
 				923B6E2F26C2DCE900171061 /* MainInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -966,6 +952,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		92F22D3026C630F400808C22 /* XCRemoteSwiftPackageReference "TwitterStreamService" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mladen2/TwitterStreamService";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92F22D3126C630F400808C22 /* TwitterStreamService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92F22D3026C630F400808C22 /* XCRemoteSwiftPackageReference "TwitterStreamService" */;
+			productName = TwitterStreamService;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		923B6DFC26C2DC7E00171061 /* Twitrack.xcdatamodeld */ = {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterStreamService
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewMainProtocol {
@@ -75,11 +76,4 @@ protocol PresenterToRouterMainProtocol {
     static func createModule() -> UINavigationController
     func pushToDetails(on view: PresenterToViewMainProtocol, with tweet: Tweet)
 
-}
-
-protocol NetworkDelegate {
-    func newTweet(_ tweet: Tweet)
-    func showError(_ error: Error)
-    func showMessage(_ message: String)
-    func networkDisconnected()
 }
