@@ -146,27 +146,16 @@
 		923B6E3526C2E3D400171061 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		923B6E3826C2E48C00171061 /* MiscUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscUtils.swift; sourceTree = "<group>"; };
 		923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Label+DynamicFont.swift"; sourceTree = "<group>"; };
-		923B6E3D26C2E9D700171061 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		923B6E3F26C2EA7E00171061 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		923B6E4126C2ECF800171061 /* LocalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalError.swift; sourceTree = "<group>"; };
 		923B6E4326C2F15500171061 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
-		923B6E4526C3164B00171061 /* HttpSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpSignature.swift; sourceTree = "<group>"; };
-		923B6E4726C3168100171061 /* HttpSignature+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HttpSignature+Test.swift"; sourceTree = "<group>"; };
-		923B6E4926C316C500171061 /* TwitterAuthSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthSignature.swift; sourceTree = "<group>"; };
-		923B6E4B26C3171600171061 /* AuthAndSignatureKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAndSignatureKey.swift; sourceTree = "<group>"; };
-		923B6E4D26C3175F00171061 /* URLRequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConstants.swift; sourceTree = "<group>"; };
-		923B6E4F26C317B500171061 /* CharacterSet+URLQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+URLQuery.swift"; sourceTree = "<group>"; };
-		923B6E5126C3185000171061 /* String+SHA1Digest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+SHA1Digest.swift"; sourceTree = "<group>"; };
 		923B6E5326C318C900171061 /* AuthHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		923B6E5526C3195B00171061 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = ../../Research/Swifter/Swifter.xcodeproj; sourceTree = "<group>"; };
-		923B6E6C26C31CC900171061 /* Authorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifterAuthHelper.swift; sourceTree = "<group>"; };
 		923B6E7026C331F500171061 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		923B6E7226C334FB00171061 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		923B6E7426C3388D00171061 /* RandomSystemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomSystemImage.swift; sourceTree = "<group>"; };
 		923B6E7826C338D300171061 /* Date+TwitterFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+TwitterFormat.swift"; sourceTree = "<group>"; };
 		924C91A826C345A100519970 /* Date+Ago.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ago.swift"; sourceTree = "<group>"; };
-		924C91AF26C349CC00519970 /* TwitterImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterImageService.swift; sourceTree = "<group>"; };
 		924CD44C26C4388000B2C252 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		924CD45326C438F800B2C252 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		924CD45526C515C700B2C252 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -354,20 +343,9 @@
 		923B6E3C26C2E9CB00171061 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				923B6E4B26C3171600171061 /* AuthAndSignatureKey.swift */,
 				923B6E5326C318C900171061 /* AuthHelper.swift */,
-				923B6E6C26C31CC900171061 /* Authorization.swift */,
 				923B6E7026C331F500171061 /* AuthViewController.swift */,
-				923B6E4F26C317B500171061 /* CharacterSet+URLQuery.swift */,
-				923B6E4526C3164B00171061 /* HttpSignature.swift */,
-				923B6E4726C3168100171061 /* HttpSignature+Test.swift */,
-				923B6E4126C2ECF800171061 /* LocalError.swift */,
-				923B6E3D26C2E9D700171061 /* NetworkService.swift */,
-				923B6E5126C3185000171061 /* String+SHA1Digest.swift */,
 				923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */,
-				923B6E4926C316C500171061 /* TwitterAuthSignature.swift */,
-				924C91AF26C349CC00519970 /* TwitterImageService.swift */,
-				923B6E4D26C3175F00171061 /* URLRequestConstants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
