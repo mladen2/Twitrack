@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwifteriOS
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -52,5 +53,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let context = URLContexts.first else { return }
+        let callbackUrl = URL(string: "twitrack://")!
+        Swifter.handleOpenURL(context.url, callbackURL: callbackUrl)
+    }
+
 
 }
