@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwifteriOS
+import Swifter
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

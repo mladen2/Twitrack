@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwifteriOS
+import Swifter
 import AuthenticationServices
 import TwitterStreamService
 

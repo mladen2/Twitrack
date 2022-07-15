@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwifteriOS
+import Swifter
 
 enum AuthKey: String {
     case key, secret, screenName, userID, verifier
