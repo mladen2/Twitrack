@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92118F53288229DB0017EEE6 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 92118F52288229DB0017EEE6 /* Swifter */; };
+		9213FC952882C0CB009B1DAF /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 9213FC942882C0CB009B1DAF /* Swifter */; };
+		9213FC982882C0DC009B1DAF /* TwitterStreamService in Frameworks */ = {isa = PBXBuildFile; productRef = 9213FC972882C0DC009B1DAF /* TwitterStreamService */; };
 		923B6DF426C2DC7E00171061 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6DF326C2DC7E00171061 /* AppDelegate.swift */; };
 		923B6DF626C2DC7E00171061 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6DF526C2DC7E00171061 /* SceneDelegate.swift */; };
 		923B6DFE26C2DC7E00171061 /* Twitrack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 923B6DFC26C2DC7E00171061 /* Twitrack.xcdatamodeld */; };
@@ -54,7 +55,6 @@
 		92F22D0126C6239A00808C22 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E5326C318C900171061 /* AuthHelper.swift */; };
 		92F22D0226C6239A00808C22 /* SwifterAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */; };
 		92F22D1D26C624BD00808C22 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7026C331F500171061 /* AuthViewController.swift */; };
-		92F22D3226C630F400808C22 /* TwitterStreamService in Frameworks */ = {isa = PBXBuildFile; productRef = 92F22D3126C630F400808C22 /* TwitterStreamService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,8 +147,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92118F53288229DB0017EEE6 /* Swifter in Frameworks */,
-				92F22D3226C630F400808C22 /* TwitterStreamService in Frameworks */,
+				9213FC982882C0DC009B1DAF /* TwitterStreamService in Frameworks */,
+				9213FC952882C0CB009B1DAF /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,8 +349,8 @@
 			);
 			name = Twitrack;
 			packageProductDependencies = (
-				92F22D3126C630F400808C22 /* TwitterStreamService */,
-				92118F52288229DB0017EEE6 /* Swifter */,
+				9213FC942882C0CB009B1DAF /* Swifter */,
+				9213FC972882C0DC009B1DAF /* TwitterStreamService */,
 			);
 			productName = Twitrack;
 			productReference = 923B6DF026C2DC7E00171061 /* Twitrack.app */;
@@ -424,8 +424,8 @@
 			);
 			mainGroup = 923B6DE726C2DC7E00171061;
 			packageReferences = (
-				92F22D3026C630F400808C22 /* XCRemoteSwiftPackageReference "TwitterStreamService" */,
-				92118F51288229DB0017EEE6 /* XCRemoteSwiftPackageReference "Swifter" */,
+				9213FC932882C0CB009B1DAF /* XCRemoteSwiftPackageReference "Swifter" */,
+				9213FC962882C0DC009B1DAF /* XCRemoteSwiftPackageReference "TwitterStreamService" */,
 			);
 			productRefGroup = 923B6DF126C2DC7E00171061 /* Products */;
 			projectDirPath = "";
@@ -839,15 +839,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		92118F51288229DB0017EEE6 /* XCRemoteSwiftPackageReference "Swifter" */ = {
+		9213FC932882C0CB009B1DAF /* XCRemoteSwiftPackageReference "Swifter" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mattdonnelly/Swifter";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
-		92F22D3026C630F400808C22 /* XCRemoteSwiftPackageReference "TwitterStreamService" */ = {
+		9213FC962882C0DC009B1DAF /* XCRemoteSwiftPackageReference "TwitterStreamService" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mladen2/TwitterStreamService";
 			requirement = {
@@ -858,14 +858,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		92118F52288229DB0017EEE6 /* Swifter */ = {
+		9213FC942882C0CB009B1DAF /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 92118F51288229DB0017EEE6 /* XCRemoteSwiftPackageReference "Swifter" */;
+			package = 9213FC932882C0CB009B1DAF /* XCRemoteSwiftPackageReference "Swifter" */;
 			productName = Swifter;
 		};
-		92F22D3126C630F400808C22 /* TwitterStreamService */ = {
+		9213FC972882C0DC009B1DAF /* TwitterStreamService */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 92F22D3026C630F400808C22 /* XCRemoteSwiftPackageReference "TwitterStreamService" */;
+			package = 9213FC962882C0DC009B1DAF /* XCRemoteSwiftPackageReference "TwitterStreamService" */;
 			productName = TwitterStreamService;
 		};
 /* End XCSwiftPackageProductDependency section */

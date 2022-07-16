@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Swifter",
+        "repositoryURL": "https://github.com/mattdonnelly/Swifter",
+        "state": {
+          "branch": "master",
+          "revision": "f6888d61500f46ca6d1814fe2624056339eda986",
+          "version": null
+        }
+      },
+      {
+        "package": "TwitterStreamService",
+        "repositoryURL": "https://github.com/mladen2/TwitterStreamService",
+        "state": {
+          "branch": null,
+          "revision": "68e95acce62283b92cb6f7267771f38758893fe3",
+          "version": "0.1.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
