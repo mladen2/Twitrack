@@ -10,14 +10,11 @@ import Swifter
 import AuthenticationServices
 import TwitterStreamService
 
-class SwifterAuthHelper {
+final class SwifterAuthHelper {
 
     var swifter2: Swifter?
 
     func initSwifter(on viewController: ASWebAuthenticationPresentationContextProviding, completion: @escaping (Result<Bool, Error>) -> Void) {
-
-        pr()
-
         if let cred = AuthHelper.fetchUserToken(),
            let key = cred.accessToken?.key,
            let secret = cred.accessToken?.secret {
@@ -35,10 +32,6 @@ class SwifterAuthHelper {
             }
 
             swifter2?.authorize(withProvider: viewController, callbackURL: callbackUrl) { credential, _ in
-
-//                pr("credential: \(String(describing: credential)), response: \(response)")
-//                pr("self.swifter2?.client.credential?.accessToken: \(String(describing: self.swifter2?.client.credential?.accessToken))")
-
                 if let cred = credential {
                     AuthHelper.saveUserToken(cred)
                 }

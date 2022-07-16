@@ -35,8 +35,8 @@ class MainInteractor: PresenterToInteractorMainProtocol {
         self.networkService.consumerKey = TwitterConstant.APIKey
         self.networkService.consumerSecret = TwitterConstant.APISecretKey
         let cred = AuthHelper.fetchUserToken()
-        self.networkService.token = cred?.accessToken?.key ?? ""
-        self.networkService.tokenSecret = cred?.accessToken?.secret ?? ""
+        self.networkService.token = cred?.accessToken?.key ?? .empty
+        self.networkService.tokenSecret = cred?.accessToken?.secret ?? .empty
      }
 
     var tweets: [Tweet] = []
@@ -91,25 +91,16 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     }
 }
 
-// MARK: -
 // MARK: Init
-// MARK: -
 extension MainInteractor {
 
     fileprivate func fetchAndAddImage(_ tweet: Tweet) {
-
-//        pr("tweet: \(String(describing: tweet.fullText))")
-
         fetchImage(for: tweet.user) { res in
-
             switch res {
-
             case .success(let data):
                 self.lock.wait()
                 tweet.user.avatarImageData = data
-//                self.tweets.insert(tweet, at: 0)
                 self.lock.signal()
-                //            pr("tweets now: \(self.tweets?.count ?? 0)")
                 self.presenter?.refreshData()
 
             case .failure(let error):
@@ -182,8 +173,6 @@ extension MainInteractor: NetworkDelegate {
     }
 
     func showError(_ error: Error) {
-        pr("error: \(error.localizedDescription)")
-
         switch error {
         case LocalError.jsonError(let msg):
             showMessage(msg)
@@ -208,11 +197,7 @@ extension MainInteractor: NetworkDelegate {
     }
 
     func newData(_ data: Data) {
-        //        pr("data: \(String(data: data, encoding: .utf8) ?? "")")
-        //        var anError: Error?
-
         do {
-            //            pr("data received: \(String(data: data, encoding: .utf8) ?? "")")
             self.decoder.keyDecodingStrategy = .convertFromSnakeCase
             let tweet = try self.decoder.decode(Tweet.self, from: data)
             tweet.timeReceived = Date()
@@ -220,41 +205,28 @@ extension MainInteractor: NetworkDelegate {
 
         } catch DecodingError.keyNotFound(let key, let context) {
             let msg = "could not find key \(key) in JSON: \(context.debugDescription)"
-            // pr(msg)
             showMessage(LocalError.jsonError(message: msg).localizedDescription)
 
         } catch DecodingError.valueNotFound(let type, let context) {
             let msg = "could not find type \(type) in JSON: \(context.debugDescription)"
-            // pr(msg)
             showMessage(LocalError.jsonError(message: msg).localizedDescription)
         } catch DecodingError.typeMismatch(let type, let context) {
             let msg = "type mismatch for type \(type) in JSON: \(context.debugDescription)"
-            // pr(msg)
             showMessage(LocalError.jsonError(message: msg).localizedDescription)
-            // how to differentiate if it's an error?
-            //            let response = try? self.decoder.decode(TwitterErrors.self, from: data ?? Data())
-            //            pr("response.error: \(String(describing: response))")
-            //            let error = response?.errors.first
-            //            completion(.failure(NSError(domain: error?.message ?? msg, code: error?.code ?? -999, userInfo: nil)))
         } catch DecodingError.dataCorrupted(let context) {
             let msg = "data found to be corrupted in JSON: \(context.debugDescription)"
-            // pr(msg)
             showMessage(LocalError.jsonError(message: msg).localizedDescription)
         } catch let error as NSError {
             let msg = "Error in read(from:ofType:) domain= \(error.domain), description= \(error.localizedDescription)"
-            // pr(msg)
             showMessage(LocalError.jsonError(message: msg).localizedDescription)
         } catch {
-            //            anError = error
             print("error: \(error.localizedDescription)")
             showError(error)
         }
     }
 }
 
-// MARK: -
 // MARK: CoreData
-// MARK: -
 extension MainInteractor {
 
     func showLocalData() {

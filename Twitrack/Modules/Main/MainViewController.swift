@@ -9,7 +9,18 @@
 import UIKit
 import AuthenticationServices
 
-class MainViewController: UIViewController {
+extension String {
+    static var empty = ""
+}
+
+private extension String {
+    static var twitrack = "Twitrack"
+    static var pause = "Pause"
+    static var error = "Error"
+    static var ok = "OK"
+}
+
+final class MainViewController: UIViewController {
 
     lazy var tableView: UITableView = {
         var tableView = UITableView()
@@ -27,8 +38,7 @@ class MainViewController: UIViewController {
     }()
 
     lazy var infoLabel: UILabel = {
-        var label = UILabel.label(.footnote, text: "", textColour: UIColor.secondaryLabel)
-//        label.backgroundColor = .systemYellow
+        var label = UILabel.label(.footnote, text: .empty, textColour: UIColor.secondaryLabel)
         return label
     }()
 
@@ -57,8 +67,8 @@ extension MainViewController: PresenterToViewMainProtocol {
     }
 
     func onError(error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(title: .error, message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: .ok, style: .default))
         DispatchQueue.main.async {
             self.present(alert, animated: true) {
             }
@@ -83,9 +93,7 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let ret = presenter?.interactor?.tweets.count ?? 0
-//        pr("there are : \(ret) tweets")
-        return ret
+        presenter?.interactor?.tweets.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,13 +115,11 @@ extension MainViewController: ASWebAuthenticationPresentationContextProviding {
     }
 }
 
-// MARK: -
 // MARK: Init
-// MARK: -
 extension MainViewController {
 
     func setupUI() {
-        navigationItem.title = "Twitrack"
+        navigationItem.title = .twitrack
         view.backgroundColor = UIColor.systemBackground
 
         view.addSubview(tableView)
@@ -133,6 +139,6 @@ extension MainViewController {
             infoLabel.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -4)
         ])
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: UIBarButtonItem.Style.plain, target: self, action: #selector(toggleStreaming))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: .pause, style: UIBarButtonItem.Style.plain, target: self, action: #selector(toggleStreaming))
     }
 }

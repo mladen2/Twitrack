@@ -12,7 +12,6 @@ import CoreData
 @objc(TweetDB)
 public class TweetDB: NSManagedObject {
 
-
     func populate(with tweet: Tweet, isSave: Bool = true) {
 
         self.idStr = tweet.idStr

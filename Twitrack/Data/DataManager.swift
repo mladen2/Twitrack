@@ -26,8 +26,7 @@ struct CoreDataQuery {
     static let beforeDateReceived = "dateReceived < %@"
 }
 
-
-class DataManager {
+final class DataManager {
 
     static let shared = DataManager()
 
@@ -40,9 +39,7 @@ class DataManager {
     var context: NSManagedObjectContext { container.viewContext }
 }
 
-// MARK: -
 // MARK: Tweet
-// MARK: -
 extension DataManager {
 
     @discardableResult
@@ -111,9 +108,7 @@ extension DataManager {
     }
 }
 
-// MARK: -
 // MARK: User
-// MARK: -
 extension DataManager {
 
     @discardableResult
@@ -153,14 +148,9 @@ extension DataManager {
                        ascending: ascending,
                        limit: limit) as? [UserDB]
     }
-
-
 }
 
-
-// MARK: -
 // MARK: General
-// MARK: -
 extension DataManager {
 
     func managedObjects(entityName: String,

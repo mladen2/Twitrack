@@ -7,7 +7,9 @@
 
 import UIKit
 import Swifter
-
+private extension String {
+    static let twitCallbackURL = "twitrack://"
+}
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -56,9 +58,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let context = URLContexts.first else { return }
-        let callbackUrl = URL(string: "twitrack://")!
-        Swifter.handleOpenURL(context.url, callbackURL: callbackUrl)
+        if let callbackUrl = URL(string: .twitCallbackURL) {
+            Swifter.handleOpenURL(context.url, callbackURL: callbackUrl)
+        }
     }
-
-
 }

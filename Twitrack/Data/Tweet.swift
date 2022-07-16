@@ -23,8 +23,7 @@ let tweetByDateCreatedAsc: SortDescriptor<Tweet> = {
 
 /// class instead of struct because structs don't support recursive fields
 /// here there is at least Tweet/retweetedStatus
-
-class Tweet: Decodable, Identifiable, Equatable {
+final class Tweet: Decodable, Identifiable, Equatable {
 
     var id: Int
     var idStr: String

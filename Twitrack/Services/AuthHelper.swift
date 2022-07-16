@@ -12,7 +12,7 @@ enum AuthKey: String {
     case key, secret, screenName, userID, verifier
 }
 
-class AuthHelper {
+final class AuthHelper {
 
     @discardableResult
     static func saveUserToken(_ data: Credential.OAuthAccessToken) -> Bool {
