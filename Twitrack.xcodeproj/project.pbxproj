@@ -338,6 +338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 923B6E1D26C2DC8100171061 /* Build configuration list for PBXNativeTarget "Twitrack" */;
 			buildPhases = (
+				9218DC87288307B3008844D2 /* ShellScript */,
 				923B6DEC26C2DC7E00171061 /* Sources */,
 				923B6DED26C2DC7E00171061 /* Frameworks */,
 				923B6DEE26C2DC7E00171061 /* Resources */,
@@ -464,6 +465,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9218DC87288307B3008844D2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(git rev-list --count HEAD)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		923B6DEC26C2DC7E00171061 /* Sources */ = {
