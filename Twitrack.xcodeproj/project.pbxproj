@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,7 +24,6 @@
 		923B6E3626C2E3D500171061 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3526C2E3D400171061 /* MainTableViewCell.swift */; };
 		923B6E3926C2E48C00171061 /* MiscUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3826C2E48C00171061 /* MiscUtils.swift */; };
 		923B6E3B26C2E61900171061 /* Label+DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */; };
-		923B6E4026C2EA7E00171061 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E3F26C2EA7E00171061 /* Constants.swift */; };
 		923B6E4426C2F15500171061 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E4326C2F15500171061 /* Tweet.swift */; };
 		923B6E7326C334FB00171061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923B6E7226C334FB00171061 /* Main.storyboard */; };
 		923B6E7526C3388D00171061 /* RandomSystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7426C3388D00171061 /* RandomSystemImage.swift */; };
@@ -54,6 +53,7 @@
 		92F22D0126C6239A00808C22 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E5326C318C900171061 /* AuthHelper.swift */; };
 		92F22D0226C6239A00808C22 /* SwifterAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */; };
 		92F22D1D26C624BD00808C22 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B6E7026C331F500171061 /* AuthViewController.swift */; };
+		DE01EC2A2AD744EC00B87625 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE01EC292AD744EC00B87625 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,6 @@
 		923B6E3526C2E3D400171061 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		923B6E3826C2E48C00171061 /* MiscUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscUtils.swift; sourceTree = "<group>"; };
 		923B6E3A26C2E61900171061 /* Label+DynamicFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Label+DynamicFont.swift"; sourceTree = "<group>"; };
-		923B6E3F26C2EA7E00171061 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		923B6E4326C2F15500171061 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		923B6E5326C318C900171061 /* AuthHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		923B6E6E26C31E7A00171061 /* SwifterAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifterAuthHelper.swift; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		92F22CD626C6158E00808C22 /* UserDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92F22CD726C6158E00808C22 /* UserDB+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92F22CD826C6158E00808C22 /* TweetDB+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TweetDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DE01EC292AD744EC00B87625 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,7 +281,6 @@
 		923B6E3726C2E48400171061 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				923B6E3F26C2EA7E00171061 /* Constants.swift */,
 				924C91A826C345A100519970 /* Date+Ago.swift */,
 				923B6E7826C338D300171061 /* Date+TwitterFormat.swift */,
 				92F22CC926C58B9800808C22 /* Double+2Significant.swift */,
@@ -294,6 +293,7 @@
 				923B6E7426C3388D00171061 /* RandomSystemImage.swift */,
 				92B8113B26C3C4CA00BF9A40 /* RegexHelper.swift */,
 				92F22CCF26C5CB0A00808C22 /* UIImageView+Boilerplate.swift */,
+				DE01EC292AD744EC00B87625 /* Constants.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -503,13 +503,13 @@
 				92F22CD026C5CB0A00808C22 /* UIImageView+Boilerplate.swift in Sources */,
 				92F22D0126C6239A00808C22 /* AuthHelper.swift in Sources */,
 				923B6E7526C3388D00171061 /* RandomSystemImage.swift in Sources */,
+				DE01EC2A2AD744EC00B87625 /* Constants.swift in Sources */,
 				92E8FB0D26C3D01E00A033A4 /* DetailsContract.swift in Sources */,
 				923B6E4426C2F15500171061 /* Tweet.swift in Sources */,
 				923B6DF426C2DC7E00171061 /* AppDelegate.swift in Sources */,
 				92F22CD426C5F64C00808C22 /* OrientationHelper.swift in Sources */,
 				923B6E3926C2E48C00171061 /* MiscUtils.swift in Sources */,
 				92F22CC126C56E8600808C22 /* User.swift in Sources */,
-				923B6E4026C2EA7E00171061 /* Constants.swift in Sources */,
 				92E8FB0E26C3D01E00A033A4 /* DetailsPresenter.swift in Sources */,
 				923B6DFE26C2DC7E00171061 /* Twitrack.xcdatamodeld in Sources */,
 				923B6DF626C2DC7E00171061 /* SceneDelegate.swift in Sources */,
